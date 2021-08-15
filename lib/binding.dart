@@ -13,27 +13,6 @@ void runAutoApp(Widget app) {
   AutoWidgetsFlutterBinding.ensureInitialized()
     ..scheduleAttachRootWidget(app)
     ..scheduleWarmUpFrame();
-
-  // var runAppCallback = () {
-  //   AutoWidgetsFlutterBinding.ensureInitialized()
-  //     ..scheduleAttachRootWidget(app)
-  //     ..scheduleWarmUpFrame();
-  // };
-  // // 屏幕尺寸初始化较晚，此操作可限制在尺寸赋值后继续操作
-  // if (window.physicalSize.isEmpty) {
-  //   VoidCallback? oldMetricsChanged = window.onMetricsChanged;
-  //   window.onMetricsChanged = () {
-  //     if (!window.physicalSize.isEmpty) {
-  //       if (oldMetricsChanged != null) {
-  //         oldMetricsChanged();
-  //       }
-  //       window.onMetricsChanged = oldMetricsChanged;
-  //       runAppCallback();
-  //     }
-  //   };
-  // } else {
-  //   runAppCallback();
-  // }
 }
 
 
@@ -51,9 +30,7 @@ class AutoWidgetsFlutterBinding extends WidgetsFlutterBinding {
     );
   }
 
-  ///
   /// 因为修改了 devicePixelRatio ，得适配点击事件  GestureBinding
-  /// 修改过的 PixelRatio
   @override
   void initInstances() {
     super.initInstances();
