@@ -59,7 +59,6 @@ class _HomePageState extends State<HomePage> {
     var originalSize = window.physicalSize / window.devicePixelRatio;
     var nowDevicePixelRatio = MediaQuery.of(context).devicePixelRatio;
 
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Autosize Demo"),
@@ -71,26 +70,28 @@ class _HomePageState extends State<HomePage> {
             Row(
               children: [
                 Expanded(
-                    child: Container(
-                  alignment: Alignment.center,
-                  key: _keyGreen,
-                  height: 60,
-                  color: Colors.redAccent,
-                  child: Text(
-                    "使用Expanded平分屏幕",
-                    style: _style,
+                  child: Container(
+                    alignment: Alignment.center,
+                    key: _keyGreen,
+                    height: 60,
+                    color: Colors.redAccent,
+                    child: Text(
+                      "使用Expanded平分屏幕",
+                      style: _style,
+                    ),
                   ),
-                )),
+                ),
                 Expanded(
-                    child: Container(
-                  alignment: Alignment.center,
-                  height: 60,
-                  color: Colors.blue,
-                  child: Text(
-                    "使用Expanded平分屏幕",
-                    style: _style,
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 60,
+                    color: Colors.blue,
+                    child: Text(
+                      "使用Expanded平分屏幕",
+                      style: _style,
+                    ),
                   ),
-                )),
+                ),
               ],
             ),
             Row(

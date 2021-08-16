@@ -59,7 +59,19 @@ AutoSizeUtil.getScreenSize()
 //或者
 MediaQuery.of(context).size
 ```
-4. 切记
+4. 直接按照设计图的尺寸写即可
+```dart
+Container(
+    alignment: Alignment.center,
+    height: 60,
+    width :60
+    color: Colors.redAccent,
+    child: Text(
+      "直接按照设计图写尺寸",
+    ),
+  )
+```
+5. 切记
 不能使用 window 获取 size 或者是 获取  MediaQuery<br>
 ~~window.physicalSize~~<br>
 ~~MediaQueryData.fromWindow(window)~~<br>
