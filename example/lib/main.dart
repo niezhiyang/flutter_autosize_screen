@@ -7,7 +7,6 @@ import 'package:flutter_autosize_screen/binding.dart';
 void main() {
   AutoSizeUtil.setStandard(360);
   runAutoApp(const MyApp());
-  // runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -51,6 +50,7 @@ class _HomePageState extends State<HomePage> {
       var renderBlu = _keyBlue.currentContext!.findRenderObject()!.paintBounds;
       var sizeBlue = renderBlu.size;
       print("${sizeBlue.width} ----- ${sizeBlue.height}");
+      print("${AutoSizeUtil.getScreenSize()}");
     });
   }
 
@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var originalSize = window.physicalSize / window.devicePixelRatio;
     var nowDevicePixelRatio = MediaQuery.of(context).devicePixelRatio;
+
 
     return Scaffold(
       appBar: AppBar(

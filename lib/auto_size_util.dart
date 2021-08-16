@@ -11,6 +11,8 @@ class AutoSizeUtil {
 
   static double _screenStandard = 360;
 
+  static Size _screenSize = Size.zero;
+
   /// 如果是横屏 就以高度为基准
   /// 如果是竖屏 就以宽度为基准
   static void setStandard(double standard) {
@@ -45,14 +47,21 @@ class AutoSizeUtil {
       // 竖屏
       _screenHeight = window.physicalSize.height / getDevicePixelRatio();
       _screenWidth = _screenStandard;
-      return Size(_screenStandard, _screenHeight);
+      _screenSize = Size(_screenStandard, _screenHeight);
+      return _screenSize;
     } else {
       // 横屏
       _screenWidth = window.physicalSize.width / getDevicePixelRatio();
       _screenHeight = _screenStandard;
-      return Size(_screenWidth, _screenStandard);
+      _screenSize = Size(_screenWidth, _screenStandard);
+      return _screenSize;
     }
   }
+
+  static Size getScreenSize() {
+    return _screenSize;
+  }
+
 
   static Widget appBuilder(BuildContext context, Widget? widget) {
     return MediaQuery(
