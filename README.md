@@ -23,6 +23,7 @@
 </div>
 
 ## web 图
+随着拉长屏幕 ，慢慢的 宽度会大于高度，当大于的时候 ，会以 高度 为 基准。
 <div >
    <img src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/web.gif?raw=true">
 </div>
