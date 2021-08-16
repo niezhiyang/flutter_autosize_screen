@@ -84,7 +84,8 @@ Container(
 不能使用 window 获取 size 或者是 获取  MediaQuery<br>
 ~~window.physicalSize~~<br>
 ~~MediaQueryData.fromWindow(window)~~<br>
-
+## 原理
+[掘进](https://juejin.cn/post/6996924953320751134)
 ## Thank
 [FlutterTest](https://github.com/genius158/FlutterTest)
 
