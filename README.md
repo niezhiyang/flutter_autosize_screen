@@ -22,6 +22,11 @@
    <img src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/1440*2560-560dpi.png?raw=true" width="30%" div align=top >
 </div>
 
+## web 图
+<div >
+   <img src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/web.jpg?raw=true" width="30%" div align=top>
+</div>
+
 ## 使用
 ### 引用
 ```dart
@@ -64,7 +69,7 @@ MediaQuery.of(context).size
 Container(
     alignment: Alignment.center,
     height: 60,
-    width :60
+    width :60,
     color: Colors.redAccent,
     child: Text(
       "直接按照设计图写尺寸",
