@@ -24,12 +24,12 @@
 
 ## 使用
 ### 引用
-```
+```dart
 flutter_autosize_screen: ^{LAST_VERSION}
 ```
 ### 初始化
 1. 在main方法的第一行就初始化，下面的基准一般以宽度为基准，直接写Ui设计图的宽度尺寸，如果是横屏的状态的 下面的 360 就是以高度为基准
-```
+```dart
 void main() {
 
   AutoSizeUtil.setStandard(360);
@@ -39,7 +39,7 @@ void main() {
 
 ```
 2. 替换根 MaterialApp 的 MediaQuery
-```
+```dart
 MaterialApp(
       title: 'Autosize Demo',
       /// 替换，这样可以在以后 使用 MediaQuery.of(context) 得到 正确的Size
@@ -54,9 +54,9 @@ MaterialApp(
 
 ```
 3. 获取Size
-```
+```dart
 AutoSizeUtil.getScreenSize()
-或者
+//或者
 MediaQuery.of(context).size
 ```
 4. 切记
