@@ -24,7 +24,7 @@
 
 ## web 图
 <div >
-   <img src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/web.gif?raw=true" width="30%" div align=top>
+   <img src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/web.gif?raw=true">
 </div>
 
 ## 使用
