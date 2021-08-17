@@ -1,7 +1,7 @@
 
 ### A low-cost Flutter screen adaptation solution（一个极低成本的 Flutter 屏幕适配方案）
 ### 100% 还原 UI，只需要按照设计图写的宽高写即可
-# 先看图片
+# 先看图片，设置的标准宽度是 360
 ###  iPhone 8 ------------------------------- iPhone 11 :
 <div >
    <img style="vertical-align: top;" src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/iPhone%208.png?raw=true" width="40%" div align=top>
