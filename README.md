@@ -84,9 +84,16 @@ Container(
 不能使用 window 获取 size 或者是 获取  MediaQuery<br>
 ~~window.physicalSize~~<br>
 ~~MediaQueryData.fromWindow(window)~~<br>
+
+## 下一个目标
+因为从根修改了屏幕宽高, 会引起一些系统Widget，有可能比正常的大或者小，比如toorbar的高度默认是 kToolbarHeight = 56.0，这样如果把宽度标准设置成112的话，那这kToolbarHeight就会显得很高，
+还有 Text （bodyText2） 默认的是 14，也会非常大，所以 下一个计划是 还原一下默认的系统 widget。大家有好的建议 也可以提给我
+
 ## 原理
 [掘进](https://juejin.cn/post/6996924953320751134)
 ## Thank
 [FlutterTest](https://github.com/genius158/FlutterTest)
+
+
 
 
