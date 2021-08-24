@@ -80,7 +80,12 @@ Container(
     ),
   )
 ```
-5. 切记
+5. 获取真正的大小，比如 kToolbarHeight 是 56
+```dart
+// 一下方法获取到真正的大小，然后设置到 toolbar上
+AutoSizeUtil.getRealSize(kToolbarHeight)
+```
+6. 切记
 不能使用 window 获取 size 或者是 获取  MediaQuery<br>
 ~~window.physicalSize~~<br>
 ~~MediaQueryData.fromWindow(window)~~<br>
