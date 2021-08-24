@@ -37,8 +37,8 @@ flutter_autosize_screen: ^{LAST_VERSION}
 1. 在main方法的第一行就初始化，下面的基准一般以宽度为基准，直接写Ui设计图的宽度尺寸，如果是横屏的状态的 下面的 360 就是以高度为基准
 ```dart
 void main() {
-  // 设置基准
-  AutoSizeUtil.setStandard(360);
+  // 设置基准 , isAutoTextSize 表示文字是否随着系统的字体大小更改而更改，默认是 true
+  AutoSizeUtil.setStandard(360,isAutoTextSize: true);
 
   // 使用 runAutoApp 来代替 runApp
   // import 'package:flutter_autosize_screen/binding.dart';

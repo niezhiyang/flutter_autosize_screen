@@ -5,7 +5,7 @@ import 'package:flutter_autosize_screen/auto_size_util.dart';
 import 'package:flutter_autosize_screen/binding.dart';
 
 void main() {
-  AutoSizeUtil.setStandard(360);
+  AutoSizeUtil.setStandard(360,isAutoTextSize: true);
   runAutoApp(const MyApp());
 }
 
