@@ -68,14 +68,19 @@ class AutoSizeUtil {
 
   static Widget appBuilder(BuildContext context, Widget? widget) {
     EdgeInsets viewInsets =  MediaQuery.of(context).viewInsets;
+    EdgeInsets pading =  MediaQuery.of(context).padding;
+    EdgeInsets viewPadding =  MediaQuery.of(context).viewPadding;
     var adapterEdge=  EdgeInsets.fromLTRB(viewInsets.left, viewInsets.top, viewInsets.right,getRealSize(viewInsets.bottom));
+    var adapterPadding=  EdgeInsets.fromLTRB(pading.left, getRealSize(pading.top), pading.right,getRealSize(pading.bottom));
+    var adapterViewPadding=  EdgeInsets.fromLTRB(viewPadding.left, getRealSize(viewPadding.top), viewPadding.right,getRealSize(viewPadding.bottom));
+
     return MediaQuery(
       // 这里如果设置 textScaleFactor = 1.0 ，就不会随着系统字体大小去改变了
       data: MediaQuery.of(context).copyWith(
           size: Size(AutoSizeUtil._screenWidth, AutoSizeUtil._screenHeight),
           devicePixelRatio: AutoSizeUtil._devicePixelRatio,
           textScaleFactor:
-              _autoTextSize ? MediaQuery.of(context).textScaleFactor : 1.0,viewInsets:adapterEdge),
+              _autoTextSize ? MediaQuery.of(context).textScaleFactor : 1.0,viewInsets:adapterEdge,padding: adapterPadding,viewPadding: adapterViewPadding),
       child: _adapterTheme(context, widget),
     );
   }
