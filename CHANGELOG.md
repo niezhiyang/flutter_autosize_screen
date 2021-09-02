@@ -1,3 +1,5 @@
+## 0.1.3
+修改 MediaQuery.of(context).padding 以及 viewPadding，适配 SafeArea
 ## 0.1.2
 解决软键盘打开会有空隙，MediaQuery.of(context).viewInsets.bottom
 ## 0.1.1
