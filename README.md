@@ -95,7 +95,7 @@ AutoSizeUtil.getRealSize(kToolbarHeight)
 还有 Text （bodyText2） 默认的是 14，也会非常大，所以 下一个计划是 还原一下默认的系统 widget。大家有好的建议 也可以提给我
 
 ## 原理
-[掘进](https://juejin.cn/post/6996924953320751134)
+[掘金](https://juejin.cn/post/6996924953320751134)
 ## Thank
 [FlutterTest](https://github.com/genius158/FlutterTest)
 
