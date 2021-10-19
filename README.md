@@ -31,6 +31,7 @@
 ## 使用
 ### 引用
 ```dart
+# 现在最新版本是 1.0.1
 flutter_autosize_screen: ^{LAST_VERSION}
 ```
 ### 初始化
