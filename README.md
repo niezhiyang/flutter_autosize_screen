@@ -17,9 +17,9 @@
 ## android 图
 ### 768x1280-320dpi----------10801920-420dpi----------1440x2560-560dpi
 <div >
-   <img src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/768*1280-320dpi.png?raw=true" width="30%" div align=top>
-   <img src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/1080*1920-420dpi.png?raw=true" width="30%" div align=top >
-   <img src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/1440*2560-560dpi.png?raw=true" width="30%" div align=top >
+   <img src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/768x1280-320dpi.png?raw=true" width="30%" div align=top>
+   <img src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/1080x1920-420dpi.png?raw=true" width="30%" div align=top >
+   <img src="https://github.com/niezhiyang/flutter_autosize_screen/blob/master/art/1440x2560-560dpi.png?raw=true" width="30%" div align=top >
 </div>
 
 ## web 图
