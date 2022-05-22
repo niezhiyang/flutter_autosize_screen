@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -16,8 +17,8 @@ void runAutoApp(Widget app) {
 
 class AutoWidgetsFlutterBinding extends WidgetsFlutterBinding {
   static WidgetsBinding ensureInitialized() {
-    if (WidgetsBinding.instance == null) AutoWidgetsFlutterBinding();
-    return WidgetsBinding.instance!;
+    AutoWidgetsFlutterBinding();
+    return WidgetsBinding.instance;
   }
 
   @override
