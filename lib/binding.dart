@@ -16,8 +16,12 @@ void runAutoApp(Widget app) {
 }
 
 class AutoWidgetsFlutterBinding extends WidgetsFlutterBinding {
+  static Type? _debugInitializedType;
   static WidgetsBinding ensureInitialized() {
-    AutoWidgetsFlutterBinding();
+    if(_debugInitializedType == null) {
+      var binding = AutoWidgetsFlutterBinding();
+      _debugInitializedType = binding.runtimeType;
+    }
     return WidgetsBinding.instance;
   }
 
