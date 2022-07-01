@@ -2,12 +2,12 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import 'auto_size_util.dart';
-
 
 void runAutoApp(Widget app) {
   AutoWidgetsFlutterBinding.ensureInitialized()
@@ -15,19 +15,28 @@ void runAutoApp(Widget app) {
     ..scheduleWarmUpFrame();
 }
 
-
 class AutoWidgetsFlutterBinding extends WidgetsFlutterBinding {
+  static Type? _debugInitializedType;
   static WidgetsBinding ensureInitialized() {
-    if (WidgetsBinding.instance == null) AutoWidgetsFlutterBinding();
-    return WidgetsBinding.instance!;
+    if(_debugInitializedType == null) {
+      var binding = AutoWidgetsFlutterBinding();
+      _debugInitializedType = binding.runtimeType;
+    }
+    return WidgetsBinding.instance;
   }
 
   @override
   ViewConfiguration createViewConfiguration() {
-    return ViewConfiguration(
-      size: AutoSizeUtil.getSize(),
-      devicePixelRatio: AutoSizeUtil.getDevicePixelRatio(),
-    );
+    var queryData = MediaQueryData.fromWindow(window);
+    if (queryData.size.shortestSide < 600) {
+      window.onPointerDataPacket = _handlePointerDataPacket;
+      return ViewConfiguration(
+        size: AutoSizeUtil.getSize(),
+        devicePixelRatio: AutoSizeUtil.getDevicePixelRatio(),
+      );
+    } else {
+      return super.createViewConfiguration();
+    }
   }
 
   /// 因为修改了 devicePixelRatio ，得适配点击事件  GestureBinding
@@ -46,47 +55,28 @@ class AutoWidgetsFlutterBinding extends WidgetsFlutterBinding {
   final Queue<PointerEvent> _pendingPointerEvents = Queue<PointerEvent>();
 
   void _handlePointerDataPacket(PointerDataPacket packet) {
+    var width = MediaQueryData.fromWindow(window).size.shortestSide;
     _pendingPointerEvents.addAll(PointerEventConverter.expand(
         packet.data,
         // 适配事件的转换比率,采用我们修改的
-        AutoSizeUtil.getDevicePixelRatio()));
+        width < 600
+            ? AutoSizeUtil.getDevicePixelRatio()
+            : window.devicePixelRatio));
     if (!locked) _flushPointerEventQueue();
   }
 
   @override
   void cancelPointer(int pointer) {
-    if (_pendingPointerEvents.isEmpty && !locked)
+    if (_pendingPointerEvents.isEmpty && !locked) {
       scheduleMicrotask(_flushPointerEventQueue);
+    }
     _pendingPointerEvents.addFirst(PointerCancelEvent(pointer: pointer));
   }
 
   void _flushPointerEventQueue() {
     assert(!locked);
-    while (_pendingPointerEvents.isNotEmpty)
-      _handlePointerEvent(_pendingPointerEvents.removeFirst());
-  }
-
-  final Map<int, HitTestResult> _hitTests = <int, HitTestResult>{};
-
-  void _handlePointerEvent(PointerEvent event) {
-    assert(!locked);
-    HitTestResult result;
-    if (event is PointerDownEvent) {
-      assert(!_hitTests.containsKey(event.pointer));
-      result = HitTestResult();
-      hitTest(result, event.position);
-      _hitTests[event.pointer] = result;
-      assert(() {
-        if (debugPrintHitTestResults) debugPrint('$event: $result');
-        return true;
-      }());
-    } else if (event is PointerUpEvent || event is PointerCancelEvent) {
-      result = _hitTests.remove(event.pointer)!;
-    } else if (event.down) {
-      result = _hitTests[event.pointer]!;
-    } else {
-      return; // We currently ignore add, remove, and hover move events.
+    while (_pendingPointerEvents.isNotEmpty) {
+      handlePointerEvent(_pendingPointerEvents.removeFirst());
     }
-    if (result != null) dispatchEvent(event, result);
   }
 }
